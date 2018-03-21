@@ -9,8 +9,12 @@ package Exercise7;
 // w for walk, s for sacrifice. Statistics are computed and
 // printed for each player.
 // ****************************************************************
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 import java.util.Scanner;
 import java.io.*;
+import java.util.ArrayList;
+
 public class BaseballStats {
     //-------------------------------------------------
     // Reads baseball stats from a file and counts
@@ -19,11 +23,18 @@ public class BaseballStats {
     //-------------------------------------------------
     public static void main (String[] args) throws IOException {
         Scanner fileScan, lineScan;
-        String fileName;
+        String fileName, name="";
+        int h=0, o=0, s=0, w=0, count=0;
         Scanner scan = new Scanner(System.in);
         System.out.print ("Enter the name of the input file: ");
         fileName = scan.nextLine();
         fileScan = new Scanner(new File(fileName));
         // Read and process each line of the file
+        System.out.println(fileName);
+        while(fileScan.hasNextLine()) {
+            lineScan = fileScan.useDelimiter(",");
+            System.out.println(lineScan.nextLine());
+        }
+
     }
 }
