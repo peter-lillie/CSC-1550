@@ -31,9 +31,11 @@ public class Name {
 
     public boolean equals(String name, String otherName) {
         if(name.equalsIgnoreCase(otherName)) {
+            System.out.println("These names are the same.");
             return(true);
         }
         else {
+            System.out.println("These names are not the same.");
             return(false);
         }
     }
