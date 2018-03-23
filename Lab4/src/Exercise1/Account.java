@@ -6,7 +6,7 @@ package Exercise1; // Located in package Exercise1
 // A bank account class with methods to deposit to, withdraw from,
 // change the name on, charge a fee to, and print a summary of the account.
 //
-// Contributors: Peter Lillie and Ricky Sethi
+// Contributors: Peter Lillie, Kyle White, and Ricky Sethi
 //
 // *******************************************************
 public class Account
@@ -44,9 +44,9 @@ public class Account
     // --------------------------------------------
 // Returns balance.
 // --------------------------------------------
-    public double getBalance()
+    public String getBalance()
     {
-        return balance;
+        return "Your account balance is: " + balance;
     }
     // --------------------------------------------
 // Returns a string containing the name, account number, and balance.
