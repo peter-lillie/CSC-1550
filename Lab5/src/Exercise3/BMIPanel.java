@@ -11,8 +11,8 @@ import javax.swing.*;
 public class BMIPanel extends JPanel {
     private int WIDTH = 300;
     private int HEIGHT = 120;
-    private JLabel heightLabel, weightLabel, BMILabel, resultLabel;
-    private JTextField height, weight;
+    private JLabel heightLabel, weightLabel, BMILabel;
+    private JTextField height, weight, resultLabel;
     private JButton calculate;
 
     // -----------------------------------------------------------------
@@ -25,21 +25,21 @@ public class BMIPanel extends JPanel {
 //create a "this is your BMI" label
         BMILabel = new JLabel("This is your BMI: ");
 //create a result label to hold the BMI value
-        resultLabel = new JLabel();
+        resultLabel = new JTextField(String.valueOf("BMI"));
 //create a JTextField to hold the person's height in inches
-        height = new JTextField(String.valueOf(height));
+        height = new JTextField(String.valueOf("Height"));
 //create a JTextField to hold the person's weight in pounds
-        weight = new JTextField(String.valueOf(weight));
+        weight = new JTextField(String.valueOf("Weight"));
 //create a button to press to calculate BMI
         calculate = new JButton("Calculate");
 //create a BMIListener and make it listen for the button to be pressed
         calculate.addActionListener(new BMIListener());
 //add the height label and height textfield to the panel
         add(heightLabel);
-        add(new JTextField("Height"));
+        add(height);
 //add the weight label and weight textfield to the panel
         add(weightLabel);
-        add(new JTextField("Weight"));
+        add(weight);
 //add the button to the panel
         add(calculate);
 //add the BMI label to the panel
@@ -64,15 +64,15 @@ public class BMIPanel extends JPanel {
             int heightVal, weightVal;
             double bmi;
 //get the text from the height and weight textfields
-            heightText = String.valueOf(heightLabel);
-            weightText = String.valueOf(weightLabel);
+            heightText = height.getText();
+            weightText = weight.getText();
 //Use Integer.parseInt to convert the text to integer values
             heightVal = Integer.parseInt(heightText);
             weightVal = Integer.parseInt(weightText);
 //Calculate the bmi = 703 * weight in pounds / (height in inches)^2
-            bmi = 703 * weightVal / (heightVal)^2;
+            bmi = Math.round((703*weightVal) / (Math.pow(heightVal, 2)));
 // Put result in result label. Use Double.toString to convert double to string
-            resultLabel.setText(Double.toString(bmi));
+            resultLabel.setText(String.valueOf(bmi));
 
         }
     }
